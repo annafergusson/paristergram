@@ -1,0 +1,100 @@
+---
+title: "Newer explorations"
+html_document:
+  code_folding: hide
+  toc: true
+  toc_float: true
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+library(parisgram) #private package
+library(devtools)
+library(tidyverse)
+library(lubridate)
+library(knitr)
+library(cld2)
+library(cld3)
+parisgram_orig = parisgram::raw_instagram_data
+parisgram = parisgram_orig %>%
+  mutate(datetime = with_tz(mdy_hm(str_replace(date," at",""),tz = "Pacific/Auckland"),"Europe/Paris")) %>% 
+  mutate(lat = as.numeric(str_match(mapCoords, "=(.*?),")[,2]), lon = as.numeric(str_match(mapCoords, ",(.*?)\\&")[,2]))
+```
+
+*Overall this new exploration focuses more on analysing the text used in the posts - what are people saying and how, including of the emoji kind!*
+
+## Parlez vous Francais? 
+
+What languages are the posts made around the Eiffel Tower in? Sure it's in the heart of a French speaking city, but it is also a popular tourist destination. Knowing what languages people are posting in might even be useful for local businesses deciding what translations to provided, or languages to give guided tours in. *Is this not really a reflection of who uses Instagram first?*
+
+We've cleaned up the text to remove the extra bits and pieces that might interfere with language prediction. We noticed that often English hashtags are used, even if posts are in other languages, so hashtags were removed before processing, as were emoji, carriage returns and usernames (staring with @).
+
+The cld language packages are imperfect, and require enough words in the post to predict what the language used is. 
+
+```{r language}
+lang_detect = str_replace_all(parisgram$text, "#\\S+", "") %>% # remove hashtags
+  str_replace_all("[\u008f-\u009f]", "") %>%  # remove emoji
+  str_replace_all("@\\S+", "") %>%  # remove usernames
+  str_replace_all("\n", "") %>%  # remove carriage returns
+  str_replace_all("^ *|(?<= ) | *$", " ") %>% # remove extra spaces
+  data.frame(instaURL = parisgram$instaURL, text = parisgram$text, text_clean = ., language1 = cld2::detect_language(as.character(.), lang_code = FALSE), language1short = tolower(cld2::detect_language(as.character(.), lang_code = TRUE)), language2 = cld3::detect_language(as.character(.))) %>% 
+  mutate(match = as.character(language1short) == as.character(language2))
+
+# There are only true matches for 27723 posts out of the 79,130
+top_lang = lang_detect %>% 
+  filter(match == TRUE) %>% 
+  group_by(language1) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count)) 
+
+top_lang %>% 
+  kable()
+```
+
+## Who are the biggest hashtaggers out there? 
+
+*Maybe start here with the idea of hashtags to text ratio, or hashtags per post ratio - then from here, expand out to languages ....*
+
+Well - it might just be Polish speakers, at least of the languages we can detect with the cld packages.
+
+```{r hashtags-lang}
+
+# The following code will extract all hashtages, even if there writer did not leave spaces between them 
+hashtag_data <- raw_instagram_data %>%
+  mutate(word = str_replace_all(text,"#"," #")) %>%
+  separate_rows(word, sep=" ") %>%
+  mutate(hashtag = stringi::stri_trans_tolower(word)) %>%
+  filter(substr(hashtag, 1, 1) == '#')
+
+hashtags_clean = hashtag_data %>% 
+  left_join(lang_detect, by="instaURL")
+
+hashtags_clean %>% 
+  filter(match == TRUE) %>% 
+  group_by(language1) %>% 
+  summarise(hashtag_count = n()) %>% 
+  left_join(top_lang, by="language1") %>% 
+  arrange(desc(count)) %>% 
+  mutate(average = round(hashtag_count/count, 2)) %>% 
+  filter(count>20) %>% 
+  arrange(desc(average)) %>%
+  kable()
+
+```
+
+## Who says yes?
+
+For those Instagramming their engagement announcements under the Eiffel Tower - who is saying yes? 
+
+```{r hashtags-yes}
+hashtag_data %>% 
+  filter(hashtag %in% c("#shesaidyes", "#isaidyes", "hesaidyes")) %>% 
+  group_by(hashtag) %>% 
+  summarise(count = n()) %>%
+  kable()
+
+```
+Mostly "she", sometimes "I", and no "he".
+
+*Sentiment analysis is not in here for now since it was buggy on my computer, I think it would be good maybe to do sentiment over time as opposed to the map stuff.....*
+

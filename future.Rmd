@@ -1,0 +1,12 @@
+---
+title: "And then?"
+output:
+  html_document:
+    toc: no
+---
+
+*Finish with positve where to stuff - Anna to show use of learnr with MC that students have to alter some code to answer, helps with the "how do we use MC for this stuff" question in the paper*
+
+Let the students play around with some code to explore Twitter data collected from the same location. What is similar? What is different?
+
+<a href="https://annafergusson.shinyapps.io/paristergram/">Paristergram shiny app</a>

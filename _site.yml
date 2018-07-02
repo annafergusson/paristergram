@@ -1,0 +1,32 @@
+name: paristergram
+navbar:
+  title: paristergram
+  type: inverse
+  left:
+  - icon: fa-camera fa-lg
+    href: index.html
+  - text: Data
+    href: data.html
+  - text: Design
+    href: design.html
+  - text: Je t’aime Paris exploration
+    href: exploration.html
+  - text: Newer explorations
+    href: new.html
+  - text: And then?
+    href: future.html
+output:
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+    include:
+      in_header: head.html
+      after_body: foot.html
+    highlight: tango
+    theme: readable
+    css: style-all.css
+    lib_dir: site_libs
+    self_contained: no
+output_dir: "."
+

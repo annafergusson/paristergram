@@ -1,0 +1,18 @@
+---
+title: "More details about the data"
+output:
+  html_document:
+    toc: no
+---
+
+Data on Instagram posts were collected during July 2015 to June 2016 using the [IFTTT service](https://ifttt.com/discover).
+
+During this time, the Instagram API allowed for the searching of public posts based on location. The criterion used for the search was any Instagram post made within 500 metres of the Eiffel Tower. 
+
+<center><img src='criterion.png'style="margin: 10px; width: 50%"></center>
+
+The API ran in real time and updated a Google sheet each time a public Instagram post met the criterion, resulting in a collection of 55 Google sheets. 
+
+For each Instagram post, the timestamp (Pacific/Auckland timezone), text, URL and location co-ordinates were recorded.  
+
+At the same time-ish, data on tweets made within 500 metres of the Eiffel Tower were collected using the same method explained above. This data is still being collected.

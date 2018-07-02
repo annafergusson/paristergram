@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
+
+body { font-family: 'Roboto Slab', serif; }
+
+h1 {
+  font-family: 'Reenie Beanie';
+  font-weight: normal;
+}
+
+.navbar {
+  background-color:#a2c4c9;
+}
+
+
+
+blockquote{
+  border-left-color: #a2c4c9;
+  font-size: smaller;
+}
+
+.footnotes {
+  font-size: x-small;
+}
+
+.navbar-brand {
+  font-family: 'Reenie Beanie';
+  font-size: 150%;
+}
+
+h2, h3, .navbar-nav {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+}
+
+h4 {
+  font-family: 'Reenie Beanie';
+  font-size: x-large;
+}
+
+a {
+  color:#a2c4c9;
+  font-weight: bold;
+}
+
+.nav a{
+  font-weight:normal;
+}
+
+.nav a:hover{
+  color:black;
+}
+
+.navbar-nav li a {
+  font-family: 'Roboto Slab';
+  font-weight: normal;
+  color: black;
+}
+
+.title {
+  display:none;
+}
+
+#header {
+  margin-top: 30px;
+}
+
+img {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.dataTable {
+  width:90%;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color:#a2c4c9;
+  border-color:#a2c4c9;
+}
