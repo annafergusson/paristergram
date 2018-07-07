@@ -1,0 +1,22 @@
+---
+title: "Talk"
+output:
+  html_document:
+    toc: no
+---
+
+**Paper abstract**:
+
+>The amount, availability, diversity and complexity of modern data means that students now require
+a wider range of data-related knowledge and skills. We present our initial attempts at increasing
+student awareness of what can be learned from modern data, within the context of working with
+large classes (n ≈ 450) made up of students from diverse majors. Through the telling of data
+exploration stories we cover: sourcing data through APIs, web scraping and open databases;
+working with different types of data/variables such as text, timestamps, location co-ordinates and
+images; and potential issues related to data quality, ownership, and privacy.
+
+Link to view/download paper: https://icots.info/10/proceedings/pdfs/ICOTS10_3C1.pdf
+
+**Slides from our talk**:
+
+<iframe id='slides' src="https://docs.google.com/presentation/d/e/2PACX-1vRxk9zbP8unZ2Fd3MLEdZuAWlZgn6dYoAVB42oHiGEAYXtJxEcwNDp0x9GoDI_rsdfNcKbaOe9I7iLe/embed?start=false&loop=false" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="margin-bottom:10px"></iframe>

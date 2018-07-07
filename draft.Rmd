@@ -1,0 +1,45 @@
+---
+title: "Explorations"
+---
+
+We will update this page with examples of the explorations and teaching notes very soon!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=16, fig.height=9,warning=FALSE, message=FALSE)
+library(parisgram) #private package
+library(tidyverse)
+library(lubridate)
+library(ggmap)
+library(DT)
+library(extrafont)
+library(stringi)
+library(gganimate)
+library(httr)
+library(magick)
+#loadfonts(device = "win")
+
+library(ggthemes())
+theme_set(theme_economist(base_family="Roboto Slab"))
+theme_update(panel.background = element_rect(fill = "#a2c4c9",colour = "#a2c4c9", size = 0.5, linetype = "solid"), plot.background= element_rect(fill = "#a2c4c9",colour = "#a2c4c9", size = 0.5, linetype = "solid"), plot.title = element_text(family="Reenie Beanie", size=30))
+data("raw_instagram_data")
+```
+
+```{r hashtag-analysis}
+hashtag_data <- raw_instagram_data %>%
+  mutate(word = str_replace_all(text,"#"," #")) %>%
+  separate_rows(word, sep=" ") %>%
+  mutate(hashtag = stringi::stri_trans_tolower(word), 
+         hashtag_check = ifelse(substr(hashtag, 1, 1) == '#',"yes","no"))
+  
+hashtag_data %>%
+  filter(hashtag_check == 'yes') %>%
+  count(hashtag, sort=TRUE) %>%
+  filter(n > 150) %>%
+  mutate(hashtag = reorder(hashtag, n)) %>%
+  slice(1:20) %>%
+  ggplot() + 
+  geom_bar(aes(x=hashtag, y=n), stat="identity") + 
+  coord_flip() + scale_y_continuous(expand = c(0,0)) + 
+  labs(title="Top 20 hashtags", y = "Frequency")
+  
+```

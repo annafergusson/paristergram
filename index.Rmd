@@ -5,28 +5,17 @@ output:
     toc: no
 ---
 
-This site were created to support the paper *Exploring modern data in a large introductory statistic course*, which was presented at ICOTS10 (Kyoto, Japan) by **Anna Fergusson** and **Liza Bolton**. This paper will be published on the [IASE website](https://iase-web.org/Conference_Proceedings.php) following the conference. 
+<div class = "row">
+<div class = "col-md-9">
+This site was created to support the paper *Exploring modern data in a large introductory statistic course*, which was presented at [ICOTS10](https://icots.info/10/) (Kyoto, Japan) by [Anna Fergusson](https://unidirectory.auckland.ac.nz/people/profile/a-fergusson) and [Liza Bolton](https://www.stat.auckland.ac.nz/people/ebol015). 
 
-**Paper abstract**:
+- [Talk](talk.html) provides the slides for our ICOTS talk.
+- [Data](data.html) provides more information about how the Instagram and Twitter data were obtained.  
+- [Explorations](draft.html) will provide examples of how the Instagram data are currently used for teaching, and ideas for future explorations.
 
->The amount, availability, diversity and complexity of modern data means that students now require
-a wider range of data-related knowledge and skills. We present our initial attempts at increasing
-student awareness of what can be learned from modern data, within the context of working with
-large classes (n ≈ 450) made up of students from diverse majors. Through the telling of data
-exploration stories we cover: sourcing data through APIs, web scraping and open databases;
-working with different types of data/variables such as text, timestamps, location co-ordinates and
-images; and potential issues related to data quality, ownership, and privacy.
-
-**Slides from our talk**:
-
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRxk9zbP8unZ2Fd3MLEdZuAWlZgn6dYoAVB42oHiGEAYXtJxEcwNDp0x9GoDI_rsdfNcKbaOe9I7iLe/embed?start=false&loop=false" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="margin-bottom:10px"></iframe>
-
-**Some helpful things**:
-
-> [Data](data.html) provides more information about how the data was obtained.
-
-> [Je t'aime Paris exploration](exploration.html) provides examples of how the data are currently used for teaching.
-
-> [Newer explorations](new.html) provides ideas for further explorations with the data.
-
-> [And then?](future.html) discusses where to next and presents one idea for introducing R-driven exploration.
+#### paris (twit)ter (insta)gram
+</div>
+<div class = "col-md-3">
+![](criterion.png)
+</div>
+</div>

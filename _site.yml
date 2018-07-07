@@ -1,25 +1,19 @@
 name: paristergram
 navbar:
-  title: paristergram
+  title: "<img id='logo' style='width: 40px; float:left; margin-right:10px' src='logo.png' /> paristergram"
   type: inverse
-  left:
-  - icon: fa-camera fa-lg
+  right:
+  - text: About
     href: index.html
+  - text: Talk
+    href: talk.html
   - text: Data
     href: data.html
-  - text: Design
-    href: design.html
-  - text: Je t’aime Paris exploration
-    href: exploration.html
-  - text: Newer explorations
-    href: new.html
-  - text: And then?
-    href: future.html
+  - text: Explorations
+    href: draft.html
 output:
   html_document:
     code_folding: hide
-    toc: yes
-    toc_float: yes
     include:
       in_header: head.html
       after_body: foot.html

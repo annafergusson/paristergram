@@ -21,8 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Reenie+Beanie" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 
 
@@ -76,6 +76,9 @@ img {
 }
 .tabbed-pane {
   padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
   outline: none;
@@ -168,34 +171,25 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">paristergram</a>
+      <a class="navbar-brand" href="index.html"><img id='logo' style='width: 40px; float:left; margin-right:10px' src='logo.png' /> paristergram</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="index.html">
-    <span class="fa fa-camera fa-lg"></span>
-     
-  </a>
+  <a href="index.html">About</a>
+</li>
+<li>
+  <a href="talk.html">Talk</a>
 </li>
 <li>
   <a href="data.html">Data</a>
 </li>
 <li>
-  <a href="design.html">Design</a>
+  <a href="draft.html">Explorations</a>
 </li>
-<li>
-  <a href="exploration.html">Je t’aime Paris exploration</a>
-</li>
-<li>
-  <a href="new.html">Newer explorations</a>
-</li>
-<li>
-  <a href="future.html">And then?</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -218,29 +212,45 @@ $(document).ready(function () {
 </div>
 
 
-<p>This site were created to support the paper <em>Exploring modern data in a large introductory statistic course</em>, which was presented at ICOTS10 (Kyoto, Japan) by <strong>Anna Fergusson</strong> and <strong>Liza Bolton</strong>. This paper will be published on the <a href="https://iase-web.org/Conference_Proceedings.php">IASE website</a> following the conference.</p>
-<p><strong>Paper abstract</strong>:</p>
-<blockquote>
-<p>The amount, availability, diversity and complexity of modern data means that students now require a wider range of data-related knowledge and skills. We present our initial attempts at increasing student awareness of what can be learned from modern data, within the context of working with large classes (n ≈ 450) made up of students from diverse majors. Through the telling of data exploration stories we cover: sourcing data through APIs, web scraping and open databases; working with different types of data/variables such as text, timestamps, location co-ordinates and images; and potential issues related to data quality, ownership, and privacy.</p>
-</blockquote>
-<p><strong>Slides from our talk</strong>:</p>
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRxk9zbP8unZ2Fd3MLEdZuAWlZgn6dYoAVB42oHiGEAYXtJxEcwNDp0x9GoDI_rsdfNcKbaOe9I7iLe/embed?start=false&amp;loop=false" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="margin-bottom:10px">
-</iframe>
-<p><strong>Some helpful things</strong>:</p>
-<blockquote>
-<p><a href="data.html">Data</a> provides more information about how the data was obtained.</p>
-</blockquote>
-<blockquote>
-<p><a href="exploration.html">Je t’aime Paris exploration</a> provides examples of how the data are currently used for teaching.</p>
-</blockquote>
-<blockquote>
-<p><a href="new.html">Newer explorations</a> provides ideas for further explorations with the data.</p>
-</blockquote>
-<blockquote>
-<p><a href="future.html">And then?</a> discusses where to next and presents one idea for introducing R-driven exploration.</p>
-</blockquote>
+<div class="row">
+<div class="col-md-9">
+<p>This site was created to support the paper <em>Exploring modern data in a large introductory statistic course</em>, which was presented at <a href="https://icots.info/10/">ICOTS10</a> (Kyoto, Japan) by <a href="https://unidirectory.auckland.ac.nz/people/profile/a-fergusson">Anna Fergusson</a> and <a href="https://www.stat.auckland.ac.nz/people/ebol015">Liza Bolton</a>.</p>
+<ul>
+<li><a href="talk.html">Talk</a> provides the slides for our ICOTS talk.</li>
+<li><a href="data.html">Data</a> provides more information about how the Instagram and Twitter data were obtained.<br />
+</li>
+<li><a href="draft.html">Explorations</a> will provide examples of how the Instagram data are currently used for teaching, and ideas for future explorations.</li>
+</ul>
+<h4 id="paris-twitter-instagram">paris (twit)ter (insta)gram</h4>
+</div>
+<div class="col-md-3">
+<p><img src="criterion.png" /></p>
+</div>
+</div>
 
-<div style="clear: both;"></div>
+<div class='footnotes'>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.</div>
+
+<script>
+  $(document).ready(function () {
+    
+ //960:569 ratio for Google slides
+ var screen_size = getScreenSize();
+ document.getElementById("slides").width = screen_size.screenWidth*0.8;
+ document.getElementById("slides").height = screen_size.screenWidth*0.8*569/960;
+ 
+});
+
+//collect the screen size of the device (from https://stackoverflow.com/questions/3437786/get-the-size-of-the-screen-current-web-page-and-browser-window)
+function getScreenSize() {
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    screenWidth = w.innerWidth || e.clientWidth || g.clientWidth,
+    screenHeight = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    return {screenWidth: screenWidth, screenHeight: screenHeight};
+} 
+</script>
 
 
 

@@ -1,6 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab);
-
 body { font-family: 'Roboto Slab', serif; }
 
 h1 {
@@ -12,11 +9,13 @@ h1 {
   background-color:#a2c4c9;
 }
 
-
-
 blockquote{
   border-left-color: #a2c4c9;
   font-size: smaller;
+}
+
+.sidenote {
+  font-size: x-small;
 }
 
 .footnotes {
@@ -36,11 +35,18 @@ h2, h3, .navbar-nav {
 h4 {
   font-family: 'Reenie Beanie';
   font-size: x-large;
+  color:#a2c4c9;
 }
 
 a {
-  color:#a2c4c9;
-  font-weight: bold;
+  color: #000000;
+  text-decoration: underline #a2c4c9 double;
+}
+
+a:hover, a:focus {
+  color: #000000;
+  background-color: #a2c4c9;
+  text-decoration: underline #a2c4c9 double;
 }
 
 .nav a{
@@ -65,18 +71,29 @@ a {
   margin-top: 30px;
 }
 
-img {
-  display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-.dataTable {
-  width:90%;
-}
-
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+.list-group-item .active, .list-group-item .active:hover, .list-group-item .active:focus {
   background-color:#a2c4c9;
   border-color:#a2c4c9;
+}
+
+div .sourceCode{
+  overflow-x: hidden;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.row {
+  background-color: #ffffff;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.footnotes {
+  border-top: 1px solid #a2c4c9;
+  padding-top: 20px;
 }
